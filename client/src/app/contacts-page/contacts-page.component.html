@@ -1,0 +1,116 @@
+<perfect-scrollbar style="max-width: 100%; max-height: 100vh;">
+  <div class="container">
+
+    <div class="page-title">
+      <h2>Контакты</h2>
+    </div>
+
+    <div class="page-content">
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="contacts-info">
+
+            <div class="info-item">
+              <h5>Телефон</h5>
+              <div class="phones">
+                <span class="phone-item"><a href="tel: +38 096 000 55 89">Kievstar: +38 096 000 55 89</a> <i class="fab fa-viber"></i> <i class="fab fa-telegram-plane"></i></span>
+                <span class="phone-item"><a href="tel: +38 066 679 48 05">Vodafone: +38 066 679 48 05</a> <i class="fab fa-viber"></i></span>
+                <span class="phone-item"><a href="tel: +38 063 803 79 06">Lifecell: +38 063 803 79 06</a></span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <h5>Email</h5>
+              <a href="mailto: skybussua@gmail.com">skybussua@gmail.com</a>
+            </div>
+
+            <div class="info-item">
+              <ul class="social-links">
+                <li>
+                  <a href="https://www.facebook.com/skybuss.com.ua/" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://plus.google.com/u/0/112365658519849122288" target="_blank">
+                    <i class="fab fa-google-plus-g"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <form
+            [formGroup]="form"
+            (ngSubmit)="onSubmit(form.value)"
+          >
+            <h4 class="center">Напишите нам</h4>
+            <div class="input-field">
+              <input
+                formControlName="name"
+                id="name"
+                type="text"
+                class="validate"
+                [ngClass]="{'invalid': form.get('name').invalid && form.get('name').touched}"
+              >
+              <label for="name">Имя*</label>
+              <span
+                *ngIf="form.get('name').invalid && form.get('name').touched"
+                class="helper-text red-text"
+              >Имя не должно быть пустым</span>
+            </div>
+            <div class="input-field">
+              <input
+                formControlName="email"
+                id="email"
+                type="email"
+                class="validate"
+                [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
+              >
+              <label for="email">Email*</label>
+              <span
+                *ngIf="form.get('email').invalid && form.get('email').touched"
+                class="helper-text red-text"
+              >
+                <span *ngIf="form.get('email').errors.required">Email не должен быть пустым</span>
+                <span *ngIf="form.get('email').errors.email">Введите корректный email</span>
+              </span>
+            </div>
+            <div class="input-field">
+              <input
+                formControlName="phone"
+                id="phone"
+                type="text"
+                class="validate"
+                pattern="^\+?[\d, \s, \-, \(, \)]+$"
+              >
+              <label for="phone">Телефон</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="form.get('phone').invalid && form.get('phone').touched"
+              >Введите корректный номер телефона</span>
+            </div>
+            <div class="input-field">
+              <textarea
+                formControlName="message"
+                id="message"
+                class="materialize-textarea"
+              ></textarea>
+              <label for="message">Сообщение</label>
+            </div>
+            <div class="center">
+              <button
+                type="submit"
+                class="waves-effect waves-light btn teal"
+                [disabled]="form.invalid || form.disabled"
+              >Отправить<i class="material-icons right">send</i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</perfect-scrollbar>

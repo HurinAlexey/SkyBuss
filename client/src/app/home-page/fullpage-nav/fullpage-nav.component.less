@@ -1,0 +1,96 @@
+.side-menu-wrap {
+  position: relative;
+  width: 450px;
+  height: 450px;
+}
+#side-menu {
+  width: 100%;
+  height: 100%;
+}
+#side-menu .dashed-stroke {
+  stroke-dasharray: 4 10;
+  background: linear-gradient(75deg, #000 0%, #000 40%, #fff 60%, #000 100%);
+}
+.circle-block {
+  position: absolute;
+  top: 150px;
+  left: 150px;
+  width: 150px;
+  height: 150px;
+  background: conic-gradient(
+    rgba(255, 255, 255, .8) .1turn,
+    rgba(50, 50, 50, .4) .14turn,
+    rgba(255, 255, 255, .2) .175turn,
+    rgba(100, 100, 100, .4) .2turn,
+    rgba(255, 255, 255, .8) .21turn,
+    rgba(200, 200, 200, .65) .4turn,
+    rgba(255, 255, 255, .8) .6turn,
+    rgba(50, 50, 50, .4) .64turn,
+    rgba(255, 255, 255, .2) .675turn,
+    rgba(100, 100, 100, .4) .7turn,
+    rgba(255, 255, 255, .8) .71turn,
+    rgba(200, 200, 200, .65) .9turn,
+    rgba(255, 255, 255, .8) 1turn
+  );
+  background-color: #fff;
+  border: 5px solid rgba(100, 100, 100, .6);
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: inset 2px 2px 5px 0px rgba(255, 255, 255, .5);
+}
+
+.side-menu-wrap .menu-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all .5s steps(2, end);
+}
+.side-menu-wrap[data-order="1"] .menu-list {
+  transform: rotate(-45deg);
+}
+.side-menu-wrap[data-order="2"] .menu-list {
+  transform: rotate(0);
+}
+.side-menu-wrap[data-order="3"] .menu-list {
+  transform: rotate(-90deg);
+}
+.side-menu-wrap[data-order="4"] .menu-list {
+  transform: rotate(-135deg);
+}
+.side-menu-wrap .menu-item-wrap {
+  position: absolute;
+  left: calc(50% - 35px);
+  bottom: 50%;
+  width: 70px;
+  height: 205px;
+  transform-origin: 50% 100%;
+}
+.side-menu-wrap .menu-item-wrap:nth-of-type(1) {
+  transform: rotate(90deg);
+}
+.side-menu-wrap .menu-item-wrap:nth-of-type(2) {
+  transform: rotate(135deg);
+}
+.side-menu-wrap .menu-item-wrap:nth-of-type(3) {
+  transform: rotate(180deg);
+}
+.side-menu-wrap .menu-item-wrap:nth-of-type(4) {
+  transform: rotate(225deg);
+}
+.side-menu-wrap .menu-item {
+  height: 70px;
+  width: 140px;
+  fill: #fff;
+  transform: rotate(-90deg);
+  transform-origin: 50% 100%;
+  cursor: pointer;
+  transition: fill .2s ease-out .6s;
+}
+.side-menu-wrap[data-order="1"] #site-dev-anchor,
+.side-menu-wrap[data-order="2"] #seo-anchor,
+.side-menu-wrap[data-order="3"] #ads-anchor,
+.side-menu-wrap[data-order="4"] #smm-anchor {
+  fill: #ffab40;
+}

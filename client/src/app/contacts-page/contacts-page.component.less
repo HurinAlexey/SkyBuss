@@ -1,0 +1,77 @@
+.container {
+  width: 1200px;
+  max-width: 96%;
+  z-index: 10;
+}
+
+.page-title {
+  text-align: center;
+  margin: 65px auto 40px;
+
+  h2 {
+    color: #fff;
+  }
+}
+
+.page-content {
+  padding: 40px 20px;
+  background-color: rgba(0, 0, 0, .5);
+  color: #fff;
+  margin-bottom: 40px;
+
+  .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .info-item {
+    margin-bottom: 30px;
+    text-align: center;
+
+    h5 {
+      margin: 0 auto 15px;
+    }
+
+    a {
+      color: #b2dfdb;
+      transition: color .3s;
+
+      &:hover {
+        color: #ffab40;
+      }
+    }
+
+    .phone-item {
+      display: block;
+      margin: 0 auto 5px;
+
+      .fab {
+        margin-left: 5px;
+      }
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+
+      li:not(:first-of-type) {
+        margin-left: 20px;
+      }
+
+      a {
+        display: block;
+        font-size: 20px;
+      }
+    }
+  }
+
+  form {
+
+    input,
+    textarea {
+      color: #fff;
+    }
+  }
+
+}

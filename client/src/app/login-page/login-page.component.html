@@ -1,0 +1,58 @@
+<main>
+
+  <div class="navbar-fixed">
+    <nav class="teal">
+      <div class="nav-wrapper">
+        <a routerLink="/" class="brand-logo"><img src="/assets/images/logo.png" alt="site logo"></a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="form-wrap">
+    <div class="row">
+      <h4>Войти в систему</h4>
+      <form
+        class="col s12"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">person</i>
+            <input
+              formControlName="login"
+              id="login"
+              type="text"
+              class="validate"
+            >
+            <label for="login">Логин или Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock_open</i>
+            <input
+              formControlName="password"
+              id="password"
+              type="password"
+              class="validate"
+            >
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+          <div class="col s12">
+            <button
+              class="btn waves-effect waves-light teal lighten-3"
+              type="submit"
+              name="submit"
+              [disabled]="form.invalid || form.disabled"
+            >Войти</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</main>

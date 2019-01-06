@@ -1,0 +1,58 @@
+<perfect-scrollbar style="max-width: 100%; max-height: 100vh;">
+  <div class="container">
+
+    <div class="page-title">
+      <h2>Портфолио</h2>
+    </div>
+
+    <div
+      class="page-content"
+      *ngIf="projects$ | async as projects; else loader"
+    >
+
+      <div class="row">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col"><a [routerLink]="['/portfolio']">Все</a></li>
+            <li class="tab col" *ngFor="let category of categories"><a [routerLink]="['/portfolio', category._id]">{{category.name}}</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div
+          class="col s12 m6 l4"
+          *ngFor="let project of projects"
+        >
+          <div class="card">
+            <div class="card-image">
+              <img src="{{project.imageSrc}}">
+              <span class="card-title">{{project.name}}</span>
+            </div>
+            <div class="card-content">
+              <p>{{project.description}}</p>
+            </div>
+            <div class="card-action">
+              <a
+                href="{{project.url}}"
+                target="_blank"
+              ><i class="material-icons left">link</i>Перейти</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col s12"
+          *ngIf="projects.length == 0"
+        >
+          Нет ни одного проекта.
+        </div>
+      </div>
+
+    </div>
+
+    <ng-template #loader>
+      <app-loader></app-loader>
+    </ng-template>
+
+  </div>
+</perfect-scrollbar>

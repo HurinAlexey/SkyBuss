@@ -1,0 +1,196 @@
+<div id="page-content">
+
+  <div id="fullpage-nav">
+    <app-fullpage-nav
+      [fullpageService]="fullpageService"
+    ></app-fullpage-nav>
+  </div>
+
+  <div class="info-wrap">
+    <a
+      id="info"
+      class="waves-effect waves-light btn btn-floating"
+      (click)="infoOpen()"
+    >
+      <i class="material-icons">info</i>
+    </a>
+
+    <div class="tap-target teal white-text" data-target="info" #info>
+      <div class="tap-target-content">
+        <h5>Drag-and-drop</h5>
+        <p>Для того что бы изменить слайд, перетащите его влево или вправо.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="fullpage" #fullpage mnFullpage
+       [mnFullpageNavigation]="false"
+       [mnFullpageKeyboardScrolling]="true"
+       [mnFullpageDragAndMove]="true"
+       [mnFullpageAnchors]="fpAnchors"
+  >
+
+    <div id="site-dev-section" class="section fp-section fp-table">
+      <div class="fp-tableCell center">
+
+        <div
+          id="categories-slider"
+        >
+          <owl-carousel
+            [options]="categoriesSliderOptions"
+            [items]="categories"
+            [carouselClasses]="['owl-theme', 'row', 'sliding']"
+          >
+            <div
+              *ngFor="let category of categories"
+              ngClass="item"
+            >
+              <img [src]="category.imageSrc" [alt]="category.name">
+              <div class="item-content">
+                <h4>{{category.name}}</h4>
+                <div ngClass="info-item">
+                  <strong>Стоимость</strong>
+                  <span>от {{category.cost}} грн</span>
+                </div>
+                <div ngClass="info-item">
+                  <strong>Время разработки</strong>
+                  <span>от {{category.devTime}} дней</span>
+                </div>
+                <a
+                  [routerLink]="['portfolio', category._id]"
+                  ngClass="works-link"
+                >Посмотреть работы</a>
+              </div>
+            </div>
+          </owl-carousel>
+        </div>
+
+        <ng-template #loader>
+          <app-loader></app-loader>
+        </ng-template>
+
+      </div>
+    </div>
+    <div id="seo-section" class="section fp-section fp-table">
+      <div class="fp-tableCell center">
+
+        <div class="section-content">
+
+          <div class="item-wrapper">
+            <div class="content-item">
+              <h3>Подготовка сайта</h3>
+              <div class="item-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
+                  hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
+                  condimentum, id venenatis odio vehicula.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="item-wrapper">
+            <div class="content-item">
+              <h3>Сбор семантики</h3>
+              <div class="item-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
+                  hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
+                  condimentum, id venenatis odio vehicula.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="item-wrapper">
+            <div class="content-item">
+              <h3>Продвижение</h3>
+              <div class="item-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
+                  hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
+                  condimentum, id venenatis odio vehicula.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div id="ads-section" class="section fp-section fp-table">
+      <div class="fp-tableCell center">
+
+        <ul
+          #adsCollapsible
+          id="ads-collapsible"
+          class="collapsible"
+        >
+          <li>
+            <div class="collapsible-header"><i class="material-icons">add</i><img src="assets/images/Google_AdWords.png" alt="Google Adwords"></div>
+            <div class="collapsible-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
+                hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
+                condimentum, id venenatis odio vehicula. Nulla libero erat, dapibus sit amet augue eu, finibus pulvinar
+                lectus. Pellentesque et lacus quis orci malesuada cursus. Integer laoreet libero et nisl faucibus, a
+                auctor erat tristique. Nam at lobortis mauris, at mollis turpis. Pellentesque ut nulla maximus, pharetra
+                mauris sed, posuere ligula. Phasellus auctor nibh nunc, convallis rutrum neque vehicula a. Aliquam ac
+                eros id lorem vestibulum rhoncus. Aliquam sollicitudin commodo malesuada. Suspendisse sed magna eros.
+                Donec et maximus lacus, sed molestie enim. Quisque faucibus libero ante, a mattis dui ornare id.
+                Phasellus non semper elit. Sed dictum fermentum cursus.</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">add</i><img src="assets/images/google-shopping.png" alt="Google Shopping"></div>
+            <div class="collapsible-body">
+              <p>Morbi convallis quam vitae tortor mollis congue. Nulla ut lorem viverra mauris tincidunt malesuada.
+                Donec sem magna, bibendum id sodales a, elementum ac tellus. Donec neque elit, sodales a odio vitae,
+                maximus egestas arcu. Nam pharetra mauris et urna finibus hendrerit. Maecenas volutpat, sem eget
+                vulputate tincidunt, tortor nibh sollicitudin lorem, in sodales urna orci sit amet ante. Duis interdum
+                velit vel scelerisque venenatis. Donec sed semper leo. Cras vehicula consequat augue ullamcorper
+                suscipit. Duis nec diam rhoncus, fringilla arcu ac, condimentum leo. Mauris pellentesque quam augue, in
+                suscipit tortor commodo at. Integer hendrerit nunc quis felis viverra feugiat. Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit.</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">add</i><img src="assets/images/YouTube.png" alt="YouTube"></div>
+            <div class="collapsible-body">
+              <p>Quisque eget augue mauris. In aliquam eget arcu vel ultricies. Ut lorem ex, porttitor vitae leo at,
+                facilisis varius ante. Vestibulum vel magna faucibus, scelerisque magna sit amet, laoreet ante. Vivamus
+                sagittis tortor sed mattis efficitur. Suspendisse aliquam diam a felis luctus, eget mattis libero
+                molestie. Praesent eget dolor auctor, imperdiet augue in, vehicula ipsum. In at lectus vitae nunc
+                sagittis molestie ut vitae mi. Sed vel leo lacinia, consectetur nisi non, consequat justo. Donec in
+                tempus neque. Etiam suscipit ex sapien, sit amet porttitor lectus pellentesque quis. In quis lectus nec
+                felis fermentum suscipit vel non dui. Suspendisse dolor arcu, congue vitae consequat non, convallis a
+                justo. Suspendisse faucibus massa nunc, non eleifend odio aliquet vitae. Cras in sem ligula.</p>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    <div id="smm-section" class="section fp-section fp-table">
+      <div class="fp-tableCell center">
+
+        <div id="smm-info">
+          <h3>SMM</h3>
+          <div class="section-content">
+            <img src="assets/images/smm.jpg" alt="smm">
+            <div class="content-text">
+              <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In
+                fringilla ut lorem et vulputate. Nulla vestibulum ipsum velit, a finibus justo laoreet sit amet.
+                Donec dolor nibh, vulputate ut rutrum eu, vehicula a velit. Cras fermentum volutpat quam, at facilisis
+                justo porta id. Nulla eu tempus libero. In quis arcu sollicitudin, sollicitudin nibh ut, volutpat
+                ipsum. Cras ultricies, dolor quis vestibulum finibus, orci erat vulputate justo, ac pharetra tellus
+                libero eu sapien.</p>
+              <p>Integer sit amet arcu mattis, laoreet massa ut, mattis diam. Ut efficitur eget nulla in varius. Donec
+                fermentum arcu tempor, finibus velit nec, venenatis mauris. Curabitur pharetra ut lacus ac egestas.
+                Nullam mollis, sem at faucibus sollicitudin, sem mi auctor lectus, sed gravida erat massa vitae augue.
+                Suspendisse luctus nulla id ultricies eleifend. Duis mattis hendrerit accumsan. Vivamus rutrum
+                pellentesque ex, in ultrices velit porttitor id. Morbi pellentesque pellentesque dolor vehicula
+                consequat.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

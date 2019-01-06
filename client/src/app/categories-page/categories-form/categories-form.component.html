@@ -1,0 +1,101 @@
+<div class="page-title">
+  <a routerLink="/categories">
+    <h3>Категории</h3>
+  </a>
+  <i class="material-icons">chevron_right</i>
+  <h3>
+    {{isNew ? 'Добавить' : 'Редактировать'}} категорию
+  </h3>
+</div>
+
+<div class="row">
+  <div class="col m12 l6">
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            formControlName="name"
+            id="name"
+            type="text"
+            class="validate"
+            [ngClass]="{'invalid': form.get('name').invalid && form.get('name').touched}"
+          >
+          <label for="name">Название</label>
+          <span
+            class="helper-text red-text"
+            *ngIf="form.get('name').invalid && form.get('name').touched"
+          >
+            <span *ngIf="form.get('name').errors['required']">Название не может быть пустым</span>
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            formControlName="cost"
+            id="cost"
+            type="number"
+            class="validate"
+            min="0"
+          >
+          <label for="cost">Стоимость</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            formControlName="devTime"
+            id="devTime"
+            type="number"
+            class="validate"
+            min="0"
+          >
+          <label for="devTime">Длительность разработки</label>
+        </div>
+      </div>
+      <div class="row">
+        <input
+          type="file"
+          class="hidden"
+          #uploadFile
+          (change)="onFileUpload($event)"
+        >
+        <div class="input-field col s12">
+          <button
+            type="button"
+            class="waves-effect waves-light btn amber darken-2"
+            (click)="triggerClick()"
+            [disabled]="form.disabled"
+          ><i class="material-icons left">cloud_upload</i>Загрузить изображение</button>
+        </div>
+      </div>
+      <div class="row btn-group">
+        <div class="input-field col s6">
+          <button
+            type="submit"
+            class="waves-effect waves-light btn teal"
+            [disabled]="form.disabled || form.invalid"
+          ><i class="material-icons left">save</i>Сохранить</button>
+        </div>
+        <div class="input-field col s6" *ngIf="!isNew">
+          <button
+            type="button"
+            class="waves-effect waves-light btn red"
+            (click)="deleteCategory()"
+          ><i class="material-icons left">delete</i>Удалить</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col m12 l6">
+    <img
+      [src]="imagePreview"
+      alt="Название"
+      class="responsive-img"
+      *ngIf="imagePreview"
+    >
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div id="page">
+
+  <ul class="sidenav sidenav-fixed">
+    <li class="teal lighten-3"><a routerLink="/" class="brand-logo"><img src="/assets/images/logo.png" alt="site logo"></a></li>
+    <li routerLinkActive="active"><a routerLink="/categories">Категории</a></li>
+    <li routerLinkActive="active"><a routerLink="/projects">Проекты</a></li>
+    <li class="last"><a href="#" (click)="logout($event)">Выйти</a></li>
+  </ul>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

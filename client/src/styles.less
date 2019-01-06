@@ -1,0 +1,162 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~materialize-css/dist/css/materialize.min.css";
+@import "~fullpage.js/dist/fullpage.min.css";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "~owl.carousel/dist/assets/owl.carousel.css";
+@import "~owl.carousel/dist/assets/owl.theme.default.css";
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.fp-section {
+  padding: 65px 0 0;
+}
+#fp-nav ul li,
+.fp-slidesNav ul li {
+  margin: 20px 10px;
+}
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span,
+#fp-nav ul li:hover a span,
+.fp-slidesNav ul li:hover a span {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  margin: 0;
+}
+#fp-nav ul li a.active span,
+#fp-nav ul li:hover a.active span,
+.fp-slidesNav ul li a.active span,
+.fp-slidesNav ul li:hover a.active span {
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  border: 2px solid red;
+  margin: 0 -1px;
+}
+
+#categories-slider {
+  width: 96%;
+  margin: auto;
+}
+#categories-slider .owl-item {
+  display: block;
+  margin: 40px auto;
+  background-color: rgba(0, 0, 0, .5);
+  opacity: 0.6;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+              0 3px 1px -2px rgba(0,0,0,0.12),
+              0 1px 5px 0 rgba(0,0,0,0.2);
+  transform: scale(.9);
+  transform-origin: 50% 50%;
+  transition: all .25s;
+}
+#categories-slider .owl-item.current {
+  opacity: 1;
+  transform: scale(1.1);
+  z-index: 100;
+}
+#categories-slider .owl-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+#categories-slider .owl-item .item {
+  color: #fff;
+}
+#categories-slider .owl-item .item-content {
+  padding: 20px 5%;
+}
+#categories-slider .owl-item h4 {
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 0 auto 15px;
+}
+#categories-slider .owl-item .info-item {
+  display: flex;
+  justify-content: space-between;
+}
+#categories-slider .owl-item .works-link {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: right;
+  color: #ffab40;
+  transition: color .3s ease;
+
+  &:hover {
+    color: #ffd8a6;
+  }
+}
+
+#seo-slider {
+  width: 96%;
+  margin: auto;
+}
+#seo-slider .owl-item {
+  display: block;
+  margin: 60px auto;
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 50%;
+  opacity: 0.6;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+  0 3px 1px -2px rgba(0,0,0,0.12),
+  0 1px 5px 0 rgba(0,0,0,0.2);
+  transform: scale(.9);
+  transform-origin: 50% 50%;
+  transition: all .25s;
+}
+#seo-slider .owl-item.current {
+  opacity: 1;
+  transform: scale(1.3);
+  z-index: 100;
+}
+#seo-slider .owl-item .item {
+  height: 360px;
+  padding: 40px;
+  color: #fff;
+  box-sizing: border-box;
+
+  h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    border-bottom: 2px solid #fff;
+    font-size: 2.5rem;
+  }
+
+  .item-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    font-size: 14px;
+  }
+}
