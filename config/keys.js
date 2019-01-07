@@ -1,4 +1,5 @@
-module.exports = {
-    mongoURI: 'mongodb://admin:katet555@ds145923.mlab.com:45923/skybuss',
-    jwt: 'flying-bus'
-};
+if (process.env.NODE_ENV === 'production') {
+    module.exports = require('./keys.prod')
+}  else {
+    module.exports = require('./keys.dev')
+}
