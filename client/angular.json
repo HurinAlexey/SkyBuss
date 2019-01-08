@@ -30,9 +30,9 @@
               "src/styles.less"
             ],
             "scripts": [
-              "./node_modules/jquery/dist/jquery.js",
-              "./node_modules/fullpage.js/dist/fullpage.js",
-              "./node_modules/owl.carousel/dist/owl.carousel.js"
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/fullpage.js/dist/fullpage.min.js",
+              "./node_modules/owl.carousel/dist/owl.carousel.min.js"
             ]
           },
           "configurations": {
@@ -91,9 +91,9 @@
               "src/styles.less"
             ],
             "scripts": [
-              "./node_modules/jquery/dist/jquery.js",
-              "./node_modules/fullpage.js/dist/fullpage.js",
-              "./node_modules/owl.carousel/dist/owl.carousel.js"
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/fullpage.js/dist/fullpage.min.js",
+              "./node_modules/owl.carousel/dist/owl.carousel.min.js"
             ],
             "assets": [
               "src/favicon.ico",
