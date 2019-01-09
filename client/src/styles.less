@@ -57,6 +57,7 @@
 }
 
 #categories-slider {
+  position: relative;
   width: 96%;
   margin: auto;
 }
@@ -80,6 +81,7 @@
 #categories-slider .owl-item img {
   width: 100%;
   height: 280px;
+  min-height: 40vh;
   object-fit: cover;
 }
 #categories-slider .owl-item .item {
@@ -108,6 +110,35 @@
 
   &:hover {
     color: #ffd8a6;
+  }
+}
+#categories-slider .owl-nav {
+  margin-top: 0;
+
+  button {
+    position: absolute;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    background-color: transparent;
+    transition: color .3s;
+
+    i {
+      font-size: 2.5rem;
+    }
+
+    &:hover {
+      color: #ffd8a6;
+    }
+
+    &.owl-prev {
+      left: 10%;
+    }
+    &.owl-next {
+      right: 10%;
+    }
   }
 }
 

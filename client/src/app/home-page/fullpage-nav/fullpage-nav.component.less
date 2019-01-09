@@ -48,10 +48,10 @@
   transition: all .5s steps(2, end);
 }
 .side-menu-wrap[data-order="1"] .menu-list {
-  transform: rotate(-45deg);
+  transform: rotate(0);
 }
 .side-menu-wrap[data-order="2"] .menu-list {
-  transform: rotate(0);
+  transform: rotate(-45deg);
 }
 .side-menu-wrap[data-order="3"] .menu-list {
   transform: rotate(-90deg);
@@ -88,8 +88,8 @@
   cursor: pointer;
   transition: fill .2s ease-out .6s;
 }
-.side-menu-wrap[data-order="1"] #site-dev-anchor,
-.side-menu-wrap[data-order="2"] #seo-anchor,
+.side-menu-wrap[data-order="1"] #seo-anchor,
+.side-menu-wrap[data-order="2"] #site-dev-anchor,
 .side-menu-wrap[data-order="3"] #ads-anchor,
 .side-menu-wrap[data-order="4"] #smm-anchor {
   fill: #ffab40;

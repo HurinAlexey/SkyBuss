@@ -1,5 +1,7 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 
+declare let $;
+
 @Component({
   selector: 'app-site-layout',
   templateUrl: './site-layout.component.html',
@@ -55,6 +57,12 @@ export class SiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     this.switchBackground();
+
+    document.addEventListener('click', (event) => {
+      if($(event.target).closest('.nav-contacts').length == 0) {
+        $('.nav-contacts ul').slideUp(300);
+      }
+    });
   }
 
   ngOnDestroy() {
@@ -83,6 +91,10 @@ export class SiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy {
           break;
       }
     }
+  }
+
+  contactsToggle() {
+    $('.nav-contacts ul').slideToggle(300);
   }
 
 }

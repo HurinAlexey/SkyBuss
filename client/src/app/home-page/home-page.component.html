@@ -27,50 +27,11 @@
        [mnFullpageNavigation]="false"
        [mnFullpageKeyboardScrolling]="true"
        [mnFullpageDragAndMove]="true"
+       [mnFullpageLoopBottom]="true"
+       [mnFullpageLoopTop]="true"
        [mnFullpageAnchors]="fpAnchors"
   >
 
-    <div id="site-dev-section" class="section fp-section fp-table">
-      <div class="fp-tableCell center">
-
-        <div
-          id="categories-slider"
-        >
-          <owl-carousel
-            [options]="categoriesSliderOptions"
-            [items]="categories"
-            [carouselClasses]="['owl-theme', 'row', 'sliding']"
-          >
-            <div
-              *ngFor="let category of categories"
-              ngClass="item"
-            >
-              <img [src]="category.imageSrc" [alt]="category.name">
-              <div class="item-content">
-                <h4>{{category.name}}</h4>
-                <div ngClass="info-item">
-                  <strong>Стоимость</strong>
-                  <span>от {{category.cost}} грн</span>
-                </div>
-                <div ngClass="info-item">
-                  <strong>Время разработки</strong>
-                  <span>от {{category.devTime}} дней</span>
-                </div>
-                <a
-                  [routerLink]="['portfolio', category._id]"
-                  ngClass="works-link"
-                >Посмотреть работы</a>
-              </div>
-            </div>
-          </owl-carousel>
-        </div>
-
-        <ng-template #loader>
-          <app-loader></app-loader>
-        </ng-template>
-
-      </div>
-    </div>
     <div id="seo-section" class="section fp-section fp-table">
       <div class="fp-tableCell center">
 
@@ -110,6 +71,47 @@
           </div>
 
         </div>
+
+      </div>
+    </div>
+    <div id="site-dev-section" class="section fp-section fp-table">
+      <div class="fp-tableCell center">
+
+        <div
+          id="categories-slider"
+        >
+          <owl-carousel
+            [options]="categoriesSliderOptions"
+            [items]="categories"
+            [carouselClasses]="['owl-theme', 'row', 'sliding']"
+          >
+            <div
+              *ngFor="let category of categories"
+              ngClass="item"
+            >
+              <img [src]="category.imageSrc" [alt]="category.name">
+              <div class="item-content">
+                <h4>{{category.name}}</h4>
+                <div ngClass="info-item">
+                  <strong>Стоимость</strong>
+                  <span>от {{category.cost}} грн</span>
+                </div>
+                <div ngClass="info-item">
+                  <strong>Время разработки</strong>
+                  <span>от {{category.devTime}} дней</span>
+                </div>
+                <a
+                  [routerLink]="['portfolio', category._id]"
+                  ngClass="works-link"
+                >Посмотреть работы</a>
+              </div>
+            </div>
+          </owl-carousel>
+        </div>
+
+        <ng-template #loader>
+          <app-loader></app-loader>
+        </ng-template>
 
       </div>
     </div>

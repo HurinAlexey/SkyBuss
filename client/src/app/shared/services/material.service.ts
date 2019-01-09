@@ -25,4 +25,9 @@ export class MaterialService {
     return M.Collapsible.init(ref.nativeElement, options)
   }
 
+  static tooltipInitialize(selector: string) {
+    let elems = document.querySelectorAll(selector);
+    M.Tooltip.init(elems)
+  }
+
 }

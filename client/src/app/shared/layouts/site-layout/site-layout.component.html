@@ -7,6 +7,13 @@
       <div class="nav-wrapper">
         <a routerLink="/" class="brand-logo"><img src="/assets/images/logo.png" alt="site logo"></a>
         <ul class="right hide-on-med-and-down">
+          <li class="nav-contacts" (click)="contactsToggle()">
+            <a><i class="material-icons left">phone_android</i> +38 096 000 55 89</a>
+            <ul>
+              <li><a>+38 066 679 48 05</a></li>
+              <li><a>+38 063 803 79 06</a></li>
+            </ul>
+          </li>
           <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Главная</a></li>
           <li routerLinkActive="active"><a routerLink="/about">О компании</a></li>
           <li routerLinkActive="active"><a routerLink="/portfolio">Портфолио</a></li>

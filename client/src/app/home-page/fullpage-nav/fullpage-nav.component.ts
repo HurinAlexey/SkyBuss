@@ -23,10 +23,10 @@ export class FullpageNavComponent implements OnInit {
 
       switch (hash) {
         case 'site-dev':
-          currentSection = '1';
+          currentSection = '2';
           break;
         case 'seo':
-          currentSection = '2';
+          currentSection = '1';
           break;
         case 'ads':
           currentSection = '3';
@@ -35,11 +35,15 @@ export class FullpageNavComponent implements OnInit {
           currentSection = '4';
           break;
         default:
-          currentSection = '1';
+          currentSection = '2';
           break;
       }
 
       menu.setAttribute('data-order', currentSection)
+    } else {
+      setTimeout(() => {
+        this.fullpageService.moveTo(2);
+      }, 1)
     }
   }
 
@@ -54,15 +58,15 @@ export class FullpageNavComponent implements OnInit {
 
     switch (sectionId) {
       case 'site-dev-section':
-        return 1;
-      case 'seo-section':
         return 2;
+      case 'seo-section':
+        return 1;
       case 'ads-section':
         return 3;
       case 'smm-section':
         return 4;
       default:
-        return 1;
+        return 2;
     }
   }
 

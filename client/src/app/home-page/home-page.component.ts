@@ -18,13 +18,14 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('adsCollapsible') adsCollapsibleRef: ElementRef;
   @ViewChild('info') infoRef: ElementRef;
   categories: Category[];
-  fpAnchors = ['site-dev', 'seo', 'ads', 'smm'];
+  fpAnchors = ['seo', 'site-dev', 'ads', 'smm'];
   categoriesSliderOptions = {
     items: 3,
     margin: 0,
     loop: true,
     dots: false,
-    navigation: false,
+    nav: true,
+    navText: ['<i class="material-icons">arrow_back</i>', '<i class="material-icons">arrow_forward</i>'],
     callbacks: true,
     onInitialized: (e) => {
       this.showCurrentSlide(e, 'categories-slider')
