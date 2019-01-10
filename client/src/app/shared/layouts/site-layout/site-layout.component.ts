@@ -78,7 +78,7 @@ export class SiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy {
           this.particlesStyle['background-color'] = 'rgb(80, 26, 26)';
           break;
         case 'seo':
-          this.particlesStyle['background-color'] = 'rgb(31, 28, 197)';
+          this.particlesStyle['background-color'] = 'rgb(43, 42, 109)';
           break;
         case 'ads':
           this.particlesStyle['background-color'] = 'rgb(27, 186, 165)';

@@ -177,10 +177,25 @@ h3 {
 }
 
 #info {
+  display: block;
   position: absolute;
   top: calc(50% + 5px);
   left: 5px;
+  box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, .6);
   z-index: 200;
+
+  i {
+    font-size: 40px;
+    //color: rgba(255, 255, 255, .8);
+    background-color: #9f9f9f;
+  }
+}
+.tap-target-origin i {
+  font-size: 40px;
+  background-color: rgba(0, 0, 0, .4);
+}
+.tap-target {
+  background-color: rgba(0, 0, 0, .9) !important;
 }
 
 

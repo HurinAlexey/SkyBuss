@@ -25,7 +25,7 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
     loop: true,
     dots: false,
     nav: true,
-    navText: ['<i class="material-icons">arrow_back</i>', '<i class="material-icons">arrow_forward</i>'],
+    navText: ['<i class="material-icons">chevron_left</i>', '<i class="material-icons">chevron_right</i>'],
     callbacks: true,
     onInitialized: (e) => {
       this.showCurrentSlide(e, 'categories-slider')
