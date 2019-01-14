@@ -6,7 +6,7 @@
     ></app-fullpage-nav>
   </div>
 
-  <div class="info-wrap">
+  <!-- <div class="info-wrap">
     <a
       id="info"
       class="waves-effect waves-light btn btn-floating"
@@ -21,10 +21,11 @@
         <p>Для того что бы изменить слайд, перетащите его влево или вправо.</p>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div id="fullpage" #fullpage mnFullpage
-       [mnFullpageNavigation]="false"
+       [mnFullpageNavigation]="true"
+       [mnFullpageNavigationPosition]="left"
        [mnFullpageKeyboardScrolling]="true"
        [mnFullpageDragAndMove]="true"
        [mnFullpageLoopBottom]="true"

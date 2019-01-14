@@ -30,4 +30,8 @@ export class MaterialService {
     M.Tooltip.init(elems)
   }
 
+  static sidenavInitialize(ref: ElementRef, options?: object) {
+    return M.Sidenav.init(ref.nativeElement, options)
+  }
+
 }

@@ -20,7 +20,6 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
   categories: Category[];
   fpAnchors = ['seo', 'site-dev', 'ads', 'smm'];
   categoriesSliderOptions = {
-    items: 3,
     margin: 0,
     loop: true,
     dots: false,
@@ -32,6 +31,14 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     onTranslate: (e) => {
       this.showCurrentSlide(e, 'categories-slider')
+    },
+    responsive: {
+      0: {
+        items: 1
+      },
+      769: {
+        items: 3
+      }
     }
   };
   adsCollapsible: MaterialInstance;
@@ -58,12 +65,12 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.adsCollapsible = MaterialService.collapsibleInitialize(this.adsCollapsibleRef);
     this.adsCollapsible.open(0);
-    this.info = MaterialService.tapTargetInitialize(this.infoRef);
+    // this.info = MaterialService.tapTargetInitialize(this.infoRef);
   }
 
   ngOnDestroy() {
     this.adsCollapsible.destroy();
-    this.info.destroy();
+    // this.info.destroy();
     this.fullpageService.destroy('all');
 
     if(this.obs$) {

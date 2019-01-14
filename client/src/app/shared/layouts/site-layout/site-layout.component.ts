@@ -1,4 +1,5 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {MaterialInstance, MaterialService} from '../../services/material.service';
 
 declare let $;
 
@@ -9,6 +10,8 @@ declare let $;
 })
 export class SiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  @ViewChild('sidenav') sidenavRef: ElementRef;
+  sidenav: MaterialInstance;
   particlesStyle: object = {};
   particlesParams: object = {};
   particlesWidth: number = 100;
@@ -63,10 +66,12 @@ export class SiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy {
         $('.nav-contacts ul').slideUp(300);
       }
     });
+
+    this.sidenav = MaterialService.sidenavInitialize(this.sidenavRef);
   }
 
   ngOnDestroy() {
-
+    this.sidenav.destroy();
   }
 
   switchBackground() {

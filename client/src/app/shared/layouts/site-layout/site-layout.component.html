@@ -20,8 +20,37 @@
           <li routerLinkActive="active"><a routerLink="/contacts">Контакты</a></li>
         </ul>
       </div>
+
+      <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-large-only"><i class="material-icons">menu</i></a>
     </nav>
   </div>
+
+  <ul id="slide-out" #sidenav class="sidenav">
+    <li><a routerLink="/" class="brand-logo"><img src="/assets/images/logo.png" alt="site logo"></a></li>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Главная</a></li>
+    <li routerLinkActive="active"><a routerLink="/about">О компании</a></li>
+    <li routerLinkActive="active"><a routerLink="/portfolio">Портфолио</a></li>
+    <li routerLinkActive="active"><a routerLink="/contacts">Контакты</a></li>
+    <li><div class="divider"></div></li>
+    <li>
+      <span class="phone-item">
+        <a href="tel: +38 096 000 55 89">+38 096 000 55 89</a>
+        <a href="viber://chat?number=+38 096 000 55 89"><i class="fab fa-viber"></i></a>
+        <a href="https://t.me/SkyBuss" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+      </span>
+    </li>
+    <li>
+      <span class="phone-item">
+        <a href="tel: +38 066 679 48 05">+38 066 679 48 05</a>
+        <a href="viber://chat?number=+38 066 679 48 05"><i class="fab fa-viber"></i></a>
+      </span>
+    </li>
+    <li>
+      <span class="phone-item">
+        <a href="tel: +38 063 803 79 06">+38 063 803 79 06</a>
+      </span>
+    </li>
+  </ul>
 
   <router-outlet></router-outlet>
 
