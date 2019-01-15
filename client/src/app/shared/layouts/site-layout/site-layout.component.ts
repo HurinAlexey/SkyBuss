@@ -56,6 +56,10 @@ export class SiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       this.switchBackground();
     });
 
+    let sidenavLinks = document.querySelectorAll('#slide-out li > a');
+    $(sidenavLinks).click(() => {
+      this.sidenav.close();
+    });
   }
 
   ngAfterViewInit() {

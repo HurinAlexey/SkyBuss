@@ -10,11 +10,24 @@
       *ngIf="projects$ | async as projects; else loader"
     >
 
-      <div class="row">
+      <div class="row desktop-list">
         <div class="col s12">
           <ul class="tabs">
             <li class="tab col"><a [routerLink]="['/portfolio']">Все</a></li>
             <li class="tab col" *ngFor="let category of categories"><a [routerLink]="['/portfolio', category._id]">{{category.name}}</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row mobile-list">
+        <div class="col s12">
+          <button
+            class="waves-effect waves-light btn"
+            (click)="toggleList()"
+          >Выбрать категорию <i class="material-icons right">expand_more</i></button>
+          <ul>
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/portfolio']">Все</a></li>
+            <li *ngFor="let category of categories" routerLinkActive="active"><a [routerLink]="['/portfolio', category._id]">{{category.name}}</a></li>
           </ul>
         </div>
       </div>

@@ -25,7 +25,6 @@
 
   <div id="fullpage" #fullpage mnFullpage
        [mnFullpageNavigation]="true"
-       [mnFullpageNavigationPosition]="left"
        [mnFullpageKeyboardScrolling]="true"
        [mnFullpageDragAndMove]="true"
        [mnFullpageLoopBottom]="true"
@@ -36,41 +35,48 @@
     <div id="seo-section" class="section fp-section fp-table">
       <div class="fp-tableCell center">
 
-        <div class="section-content">
+        <div
+          id="seo-slider"
+        >
+          <owl-carousel
+            [options]="seoSliderOptions"
+            [carouselClasses]="['owl-theme', 'row', 'sliding']"
+          >
 
-          <div class="item-wrapper">
-            <div class="content-item">
-              <h3>Подготовка сайта</h3>
-              <div class="item-text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
-                  hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
-                  condimentum, id venenatis odio vehicula.</p>
+            <div class="item">
+              <div class="content-item">
+                <h3>Подготовка сайта</h3>
+                <div class="item-text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
+                    hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
+                    condimentum, id venenatis odio vehicula.</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="item-wrapper">
-            <div class="content-item">
-              <h3>Сбор семантики</h3>
-              <div class="item-text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
-                  hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
-                  condimentum, id venenatis odio vehicula.</p>
+            <div class="item">
+              <div class="content-item">
+                <h3>Сбор семантики</h3>
+                <div class="item-text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
+                    hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
+                    condimentum, id venenatis odio vehicula.</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="item-wrapper">
-            <div class="content-item">
-              <h3>Продвижение</h3>
-              <div class="item-text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
-                  hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
-                  condimentum, id venenatis odio vehicula.</p>
+            <div class="item">
+              <div class="content-item">
+                <h3>Продвижение</h3>
+                <div class="item-text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
+                    hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
+                    condimentum, id venenatis odio vehicula.</p>
+                </div>
               </div>
             </div>
-          </div>
 
+          </owl-carousel>
         </div>
 
       </div>

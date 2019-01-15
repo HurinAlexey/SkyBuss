@@ -4,7 +4,7 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async (req, res) => {
     try {
-        const projects = await Project.find({});
+        const projects = await Project.find({}).sort({'date': -1});
         res.status(200).json(projects);
     } catch(e) {
         errorHandler(res, e);
@@ -15,7 +15,7 @@ module.exports.getByCategoryId = async (req, res) => {
     try {
         const projects = await Project.find({
             category: req.params.categoryId
-        });
+        }).sort({'date': -1});
         res.status(200).json(projects);
     } catch(e) {
         errorHandler(res, e);

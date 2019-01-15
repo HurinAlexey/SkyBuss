@@ -41,6 +41,24 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     }
   };
+  seoSliderOptions = {
+    dots: false,
+    navText: ['<i class="material-icons">chevron_left</i>', '<i class="material-icons">chevron_right</i>'],
+    responsive: {
+      0: {
+        margin: 10,
+        nav: true,
+        loop: true,
+        items: 1
+      },
+      769: {
+        margin: 20,
+        nav: false,
+        loop: false,
+        items: 3
+      }
+    }
+  };
   adsCollapsible: MaterialInstance;
   info: MaterialInstance;
   obs$: Subscription;

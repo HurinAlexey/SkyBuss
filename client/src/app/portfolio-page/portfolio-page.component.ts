@@ -6,6 +6,9 @@ import {Observable, Subscription} from 'rxjs/index';
 import {CategoriesService} from '../shared/services/categories.service';
 import {MaterialService} from '../shared/services/material.service';
 
+
+declare let $;
+
 @Component({
   selector: 'app-portfolio-page',
   templateUrl: './portfolio-page.component.html',
@@ -50,6 +53,10 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
     if(this.sub) {
       this.sub.unsubscribe()
     }
+  }
+
+  toggleList() {
+    $('.mobile-list ul').slideToggle(300);
   }
 
 }
