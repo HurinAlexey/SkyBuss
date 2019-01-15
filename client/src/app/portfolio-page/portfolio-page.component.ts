@@ -34,11 +34,6 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
         this.projects$ = this.projectsService.getByCategoryId(params['id']);
       } else {
         this.projects$ = this.projectsService.fetch();
-        this.projects$.subscribe((projects) => {
-          console.log(projects)
-        }, error => {
-          console.log(error)
-        });
       }
     });
 

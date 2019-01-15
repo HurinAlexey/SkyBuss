@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {MaterialService} from '../shared/services/material.service';
+import {MnFullpageService} from 'ngx-fullpage';
 
 @Component({
   selector: 'app-about-page',
