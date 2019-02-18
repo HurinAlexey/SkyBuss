@@ -34,4 +34,8 @@ export class MaterialService {
     return M.Sidenav.init(ref.nativeElement, options)
   }
 
+  static modalInitialize(ref: ElementRef, options?: object) {
+    return M.Modal.init(ref.nativeElement, options)
+  }
+
 }

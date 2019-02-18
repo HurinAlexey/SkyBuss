@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MaterialInstance, MaterialService} from '../../services/material.service';
+import {ParticlesParams} from './particles-params';
 
 declare let $;
 
@@ -35,19 +36,21 @@ export class SiteLayoutComponent implements OnInit, AfterViewInit, OnDestroy {
       'transition': 'background-color 1s'
     };
 
-    this.particlesParams = {
-      particles: {
-        number: {
-          value: 150,
-        },
-        color: {
-          value: '#fff'
-        },
-        shape: {
-          type: 'star',
-        },
-      }
-    };
+    this.particlesParams = ParticlesParams;
+
+    // this.particlesParams = {
+    //   particles: {
+    //     number: {
+    //       value: 150,
+    //     },
+    //     color: {
+    //       value: '#fff'
+    //     },
+    //     shape: {
+    //       type: 'star',
+    //     },
+    //   }
+    // };
 
     this.switchBackground();
 

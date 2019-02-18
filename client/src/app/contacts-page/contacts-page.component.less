@@ -37,8 +37,20 @@
       color: #b2dfdb;
       transition: color .3s;
 
+      svg {
+        width: 15px;
+        height: 15px;
+        fill: #fff;
+        margin-left: 5px;
+        transition: fill .3s;
+      }
+
       &:hover {
         color: #ffab40;
+
+        svg {
+          fill: #ffab40;
+        }
       }
     }
 
@@ -71,6 +83,10 @@
     input,
     textarea {
       color: #fff;
+    }
+
+    button[type="submit"]:not([disabled]) {
+      background-color: rgba(242, 21, 179, .7)!important;
     }
   }
 

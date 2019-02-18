@@ -99,6 +99,10 @@
     filter: grayscale(1);
     opacity: .7;
     transition: all .2s ease-out .6s;
+
+    &.active-image {
+      display: none;
+    }
   }
 
   h4 {
@@ -123,6 +127,11 @@
   }
 
   img {
+    display: none;
     filter: grayscale(0);
+
+    &.active-image {
+      display: block;
+    }
   }
 }

@@ -1,0 +1,63 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit(form.value)"
+>
+  <h4 class="center">Получить консультацию</h4>
+  <div class="input-field">
+    <input
+      formControlName="name"
+      id="cb-name"
+      type="text"
+      class="validate"
+      [ngClass]="{'invalid': form.get('name').invalid && form.get('name').touched}"
+    >
+    <label for="cb-name">Имя*</label>
+    <span
+      *ngIf="form.get('name').invalid && form.get('name').touched"
+      class="helper-text red-text"
+    >Имя не должно быть пустым</span>
+  </div>
+  <div class="input-field">
+    <input
+      formControlName="email"
+      id="cb-email"
+      type="email"
+      class="validate"
+      [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
+    >
+    <label for="cb-email">Email*</label>
+    <span
+      *ngIf="form.get('email').invalid && form.get('email').touched"
+      class="helper-text red-text"
+    >
+      <span *ngIf="form.get('email').errors.required">Email не должен быть пустым</span>
+      <span *ngIf="form.get('email').errors.email">Введите корректный email</span>
+    </span>
+  </div>
+  <div class="input-field">
+    <input
+      formControlName="phone"
+      id="cb-phone"
+      type="text"
+      class="validate"
+      pattern="^\+?[\d, \s, \-, \(, \)]+$"
+      [ngClass]="{'invalid': form.get('phone').invalid && form.get('phone').touched}"
+    >
+    <label for="cb-phone">Телефон*</label>
+
+    <span
+      *ngIf="form.get('phone').invalid && form.get('phone').touched"
+      class="helper-text red-text"
+    >
+      <span *ngIf="form.get('phone').invalid && form.get('phone').touched && !form.get('phone').errors.required">Введите корректный номер телефона</span>
+      <span *ngIf="form.get('phone').errors.required">Телефон не должен быть пустым</span>
+    </span>
+  </div>
+  <div class="center">
+    <button
+      type="submit"
+      class="waves-effect waves-light btn teal"
+      [disabled]="form.invalid || form.disabled"
+    >Отправить<i class="material-icons right">send</i></button>
+  </div>
+</form>

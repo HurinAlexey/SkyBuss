@@ -6,29 +6,17 @@
     ></app-fullpage-nav>
   </div>
 
-  <!-- <div class="info-wrap">
-    <a
-      id="info"
-      class="waves-effect waves-light btn btn-floating"
-      (click)="infoOpen()"
-    >
-      <i class="material-icons">info</i>
-    </a>
-
-    <div class="tap-target teal white-text" data-target="info" #info>
-      <div class="tap-target-content">
-        <h5>Drag-and-drop</h5>
-        <p>Для того что бы изменить слайд, перетащите его влево или вправо.</p>
-      </div>
-    </div>
-  </div> -->
+  <button
+    class="btn callback-btn"
+    (click)="callbackFormOpen()"
+  >
+    <i class="material-icons">phone</i>
+  </button>
 
   <div id="fullpage" #fullpage mnFullpage
        [mnFullpageNavigation]="true"
        [mnFullpageKeyboardScrolling]="true"
        [mnFullpageDragAndMove]="true"
-       [mnFullpageLoopTop]="true"
-       [mnFullpageLoopBottom]="true"
        [mnFullpageAnchors]="fpAnchors"
   >
 
@@ -45,34 +33,61 @@
 
             <div class="item">
               <div class="content-item">
-                <h3>Подготовка сайта</h3>
+                <img src="assets/images/seo-1.png" alt="seo">
+                <h3>Делаем больше, чем SEO продвижение сайта</h3>
                 <div class="item-text">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
-                    hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
-                    condimentum, id venenatis odio vehicula.</p>
+                  <p>Предлагаем полный комплекс услуг по SЕО продвижению сайта в поисковых системах
+                    Google и Яндекс для Украинских компаний и частных лиц.</p>
+                </div>
+                <button
+                  class="waves-effect waves-light btn"
+                  (click)="formToggle()"
+                >
+                  <i class="material-icons left">feedback</i>
+                  <span class="btn-text">Получить консультацию</span>
+                </button>
+
+                <div id="consultation-form" class="form-wrap" #consultationForm>
+                  <button
+                    class="btn close"
+                    (click)="formClose()"
+                  >
+                    <i class="material-icons">close</i>
+                  </button>
+                  <app-consultation-form></app-consultation-form>
                 </div>
               </div>
             </div>
 
             <div class="item">
               <div class="content-item">
-                <h3>Сбор семантики</h3>
+                <img src="assets/images/seo-2.png" alt="seo">
+                <h3>Сколько стоит продвижение сайта?</h3>
                 <div class="item-text">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
-                    hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
-                    condimentum, id venenatis odio vehicula.</p>
+                  <p>Стоимость продвижения в зависит от целей продвижения и конкурентности ниши
+                    рынка. Просчёт можно осуществить только в индивидуальном порядке, с учётом
+                    всех особенностей продвигаемого продукта. Мы не работаем с сайтами 18+ и с
+                    сайтами, вводящими в заблуждение потребителя.</p>
                 </div>
               </div>
             </div>
 
             <div class="item">
               <div class="content-item">
-                <h3>Продвижение</h3>
+                <img src="assets/images/seo-3.png" alt="seo">
+                <h3>Сколько времени занимает продвижение сайта?</h3>
                 <div class="item-text">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
-                    hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
-                    condimentum, id venenatis odio vehicula.</p>
+                  <p>Мы ценим свое время и время наших клиентов потому что понимаем,
+                    чем эффективнее и быстрее наша работа, тем больше продажи у наших клиентов.
+                    Каждый сайт индивидуален, а для его раскрутки может понадобится разное время.</p>
                 </div>
+                <button
+                  class="waves-effect waves-light btn"
+                  (click)="briefFormOpen()"
+                >
+                  <i class="material-icons left">assignment</i>
+                  <span class="btn-text">Заполнить бриф</span>
+                </button>
               </div>
             </div>
 
@@ -88,6 +103,7 @@
           id="categories-slider"
         >
           <owl-carousel
+            #categoriesSlider
             [options]="categoriesSliderOptions"
             [items]="categories"
             [carouselClasses]="['owl-theme', 'row', 'sliding']"
@@ -101,7 +117,7 @@
                 <h4>{{category.name}}</h4>
                 <div ngClass="info-item">
                   <strong>Стоимость</strong>
-                  <span>от {{category.cost}} грн</span>
+                  <span>от {{category.cost}} y.e.</span>
                 </div>
                 <div ngClass="info-item">
                   <strong>Время разработки</strong>
@@ -133,41 +149,43 @@
           <li>
             <div class="collapsible-header"><i class="material-icons">add</i><img src="assets/images/Google_AdWords.png" alt="Google Adwords"></div>
             <div class="collapsible-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ullamcorper vulputate ipsum at
-                hendrerit. Quisque eget augue iaculis, volutpat nibh nec, volutpat nisi. Vivamus pretium dui quis mi
-                condimentum, id venenatis odio vehicula. Nulla libero erat, dapibus sit amet augue eu, finibus pulvinar
-                lectus. Pellentesque et lacus quis orci malesuada cursus. Integer laoreet libero et nisl faucibus, a
-                auctor erat tristique. Nam at lobortis mauris, at mollis turpis. Pellentesque ut nulla maximus, pharetra
-                mauris sed, posuere ligula. Phasellus auctor nibh nunc, convallis rutrum neque vehicula a. Aliquam ac
-                eros id lorem vestibulum rhoncus. Aliquam sollicitudin commodo malesuada. Suspendisse sed magna eros.
-                Donec et maximus lacus, sed molestie enim. Quisque faucibus libero ante, a mattis dui ornare id.
-                Phasellus non semper elit. Sed dictum fermentum cursus.</p>
+              <p>Быстрый старт бизнеса и быстрые продажи возможны только с помощью контекстной рекламы!</p>
+              <p>Мы покупаем для вас места на первой странице выдачи по ключевым запросам, по которым ваши клиенты ищут
+                вас в сети. Это гарантирует что по самым прибыльным для вас запросам ваш покупатель вас найдет.</p>
+              <p>Каждый клик это деньги, мы делам так чтобы они не пропадали в пустую!</p>
+              <p>Работы по контекстной рекламе:</p>
+              <ul>
+                <li>Автоматизация контекстной рекламы</li>
+                <li>Аудит контекстной рекламы</li>
+                <li>Отслеживание и поддержка компаний</li>
+              </ul>
             </div>
           </li>
           <li>
             <div class="collapsible-header"><i class="material-icons">add</i><img src="assets/images/google-shopping.png" alt="Google Shopping"></div>
             <div class="collapsible-body">
-              <p>Morbi convallis quam vitae tortor mollis congue. Nulla ut lorem viverra mauris tincidunt malesuada.
-                Donec sem magna, bibendum id sodales a, elementum ac tellus. Donec neque elit, sodales a odio vitae,
-                maximus egestas arcu. Nam pharetra mauris et urna finibus hendrerit. Maecenas volutpat, sem eget
-                vulputate tincidunt, tortor nibh sollicitudin lorem, in sodales urna orci sit amet ante. Duis interdum
-                velit vel scelerisque venenatis. Donec sed semper leo. Cras vehicula consequat augue ullamcorper
-                suscipit. Duis nec diam rhoncus, fringilla arcu ac, condimentum leo. Mauris pellentesque quam augue, in
-                suscipit tortor commodo at. Integer hendrerit nunc quis felis viverra feugiat. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.</p>
+              <p><b>Google Shopping идеально подходит для тех у кого:</b></p>
+              <ul>
+                <li>в распоряжении большие товарные партии и кто тратит много сил и времени на настройку поисковой системы;</li>
+                <li>завышена стоимость кликов в области ниши, что приводит к потере продаж;</li>
+                <li>нет возможности или необходимых знаний в области актуализации цен в объявлениях в автоматическом
+                  режиме (то есть своевременно показывать обновлённые цены потенциальному клиенту);</li>
+                <li>низкий охват целевого поискового трафика по причине задействования всех стандартных вариантов рекламы.</li>
+              </ul>
+              <p>С настройкой данного функционала придётся повозиться, либо обратиться к нам и мы сделаем это за вас.</p>
             </div>
           </li>
           <li>
             <div class="collapsible-header"><i class="material-icons">add</i><img src="assets/images/YouTube.png" alt="YouTube"></div>
             <div class="collapsible-body">
-              <p>Quisque eget augue mauris. In aliquam eget arcu vel ultricies. Ut lorem ex, porttitor vitae leo at,
-                facilisis varius ante. Vestibulum vel magna faucibus, scelerisque magna sit amet, laoreet ante. Vivamus
-                sagittis tortor sed mattis efficitur. Suspendisse aliquam diam a felis luctus, eget mattis libero
-                molestie. Praesent eget dolor auctor, imperdiet augue in, vehicula ipsum. In at lectus vitae nunc
-                sagittis molestie ut vitae mi. Sed vel leo lacinia, consectetur nisi non, consequat justo. Donec in
-                tempus neque. Etiam suscipit ex sapien, sit amet porttitor lectus pellentesque quis. In quis lectus nec
-                felis fermentum suscipit vel non dui. Suspendisse dolor arcu, congue vitae consequat non, convallis a
-                justo. Suspendisse faucibus massa nunc, non eleifend odio aliquet vitae. Cras in sem ligula.</p>
+              <p>Мы поможем разместить Ваше видео в чужих роликах на популярном видеохостинге Youtube.</p>
+              <p>Сделаем качественный подбор по критериям - пол, возраст, город, интересы и т.д.</p>
+              <p>Такая <b>эффективная реклама на youtube</b> обеспечит ознакомление широкой <b>целевой аудитории</b>
+                пользователей с Вашими материалами, заставляя их не только просматривать, но и подписываться на
+                раскручиваемый канал, делать покупки  товаров/услуг.</p>
+              <p>Профессиональная <b>реклама канала на Youtube</b> с правильным подбором целевой аудитории позволит
+                получить качественный инструмент <b>продаж</b>. Мы поможем сделать Ваш контент популярным. Продуманная
+                <b>реклама видео на youtube</b> поможет в минимальные сроки добиться поставленных целей.</p>
             </div>
           </li>
         </ul>
@@ -180,20 +198,22 @@
         <div id="smm-info">
           <h3>SMM</h3>
           <div class="section-content">
-            <img src="assets/images/smm.jpg" alt="smm">
+            <img src="assets/images/smm4.png" alt="smm">
             <div class="content-text">
-              <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In
-                fringilla ut lorem et vulputate. Nulla vestibulum ipsum velit, a finibus justo laoreet sit amet.
-                Donec dolor nibh, vulputate ut rutrum eu, vehicula a velit. Cras fermentum volutpat quam, at facilisis
-                justo porta id. Nulla eu tempus libero. In quis arcu sollicitudin, sollicitudin nibh ut, volutpat
-                ipsum. Cras ultricies, dolor quis vestibulum finibus, orci erat vulputate justo, ac pharetra tellus
-                libero eu sapien.</p>
-              <p>Integer sit amet arcu mattis, laoreet massa ut, mattis diam. Ut efficitur eget nulla in varius. Donec
-                fermentum arcu tempor, finibus velit nec, venenatis mauris. Curabitur pharetra ut lacus ac egestas.
-                Nullam mollis, sem at faucibus sollicitudin, sem mi auctor lectus, sed gravida erat massa vitae augue.
-                Suspendisse luctus nulla id ultricies eleifend. Duis mattis hendrerit accumsan. Vivamus rutrum
-                pellentesque ex, in ultrices velit porttitor id. Morbi pellentesque pellentesque dolor vehicula
-                consequat.</p>
+              <p>Мы занимаемся продвижением брендов в социальных сетях уже 8 лет!</p>
+              <p>В нашей в команде профессиональные журналисты, дизайнеры и таргетологи с опытом работы в SMM.</p>
+              <p>Мы не делим рынок исключительно на В2В или В2С. Работаем H2H, где Н (human) стоит на первом месте.</p>
+              <p><strong>SMM ПРОДВИЖЕНИЕ ОТ SKYBUSS</strong></p>
+              <ul>
+                <li>построение стратегии развития;</li>
+                <li>еженедельный контент-план;</li>
+                <li>тексты и изображения для постинга в едином стиле;</li>
+                <li>построение стратегии рекламы;</li>
+                <li>создание рекламных блоков;</li>
+                <li>настройка таргетинга;</li>
+                <li>продвижение серыми методами;</li>
+                <li>продвижение белыми методами.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -202,4 +222,28 @@
     </div>
   </div>
 
+</div>
+
+
+<div class="mob-warning">
+  <i class="material-icons left">screen_rotation</i>
+  <h4>Для корректной работы сайта поверните экран и перезагрузите страницу!</h4>
+</div>
+
+
+<div id="brief-form" class="modal" #briefForm>
+  <perfect-scrollbar style="max-width: 100%; max-height: 70vh;">
+    <div class="modal-content">
+      <app-brief-form></app-brief-form>
+    </div>
+  </perfect-scrollbar>
+</div>
+
+
+<div id="callback-form" class="modal" #callbackForm>
+  <perfect-scrollbar style="max-width: 100%; max-height: 70vh;">
+    <div class="modal-content">
+      <app-callback-form></app-callback-form>
+    </div>
+  </perfect-scrollbar>
 </div>

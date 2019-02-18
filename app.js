@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const path = require('path');
@@ -23,6 +24,7 @@ app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(require('cors')());
+app.use(compression());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/category', categoryRoutes);

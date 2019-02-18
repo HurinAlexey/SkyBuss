@@ -1,6 +1,8 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {MnFullpageService} from 'ngx-fullpage';
 
+declare let $;
+
 @Component({
   selector: 'app-fullpage-nav',
   templateUrl: './fullpage-nav.component.html',
@@ -13,7 +15,12 @@ export class FullpageNavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    window.addEventListener("hashchange", () => {this.setCurrentSection()});
+    window.addEventListener("hashchange", () => {
+      this.setCurrentSection();
+
+      let switchSound: any = document.getElementById('switcher-sound');
+      switchSound.play();
+    });
 
     if(window.location.hash) {
       const hash = window.location.hash.substr(1);

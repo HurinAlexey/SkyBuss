@@ -20,10 +20,12 @@ module.exports.send = (req, res) => {
         const mailOptions = {
             from: 'admin@skybuss.com.ua',
             to: 'tanatosvii@gmail.com',
-            subject: 'Skybuss "Контактная форма"',
+            subject: `Skybuss ${req.body.subject || ''}`,
             text: `Имя: ${req.body.name}
-        Телефон: ${req.body.phone}
-        Сообщение: ${req.body.message}`
+Email: ${req.body.email}
+Телефон: ${req.body.phone || ''}
+
+${req.body.message || ''}`
         };
 
         transporter.sendMail(mailOptions, (error, info) => {

@@ -1,0 +1,97 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit(form.value)"
+>
+  <h4 class="center">Заполните бриф</h4>
+  <div class="input-field">
+    <input
+      formControlName="name"
+      id="brief-name"
+      type="text"
+      class="validate"
+      [ngClass]="{'invalid': form.get('name').invalid && form.get('name').touched}"
+    >
+    <label for="brief-name">Имя*</label>
+    <span
+      *ngIf="form.get('name').invalid && form.get('name').touched"
+      class="helper-text red-text"
+    >Имя не должно быть пустым</span>
+  </div>
+  <div class="input-field">
+    <input
+      formControlName="email"
+      id="brief-email"
+      type="email"
+      class="validate"
+      [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
+    >
+    <label for="brief-email">Email*</label>
+    <span
+      *ngIf="form.get('email').invalid && form.get('email').touched"
+      class="helper-text red-text"
+    >
+      <span *ngIf="form.get('email').errors.required">Email не должен быть пустым</span>
+      <span *ngIf="form.get('email').errors.email">Введите корректный email</span>
+    </span>
+  </div>
+  <div class="input-field">
+    <input
+      formControlName="phone"
+      id="brief-phone"
+      type="text"
+      class="validate"
+      pattern="^\+?[\d, \s, \-, \(, \)]+$"
+      [ngClass]="{'invalid': form.get('phone').invalid && form.get('phone').touched}"
+    >
+    <label for="brief-phone">Телефон*</label>
+
+    <span
+      *ngIf="form.get('phone').invalid && form.get('phone').touched"
+      class="helper-text red-text"
+    >
+      <span *ngIf="form.get('phone').invalid && form.get('phone').touched && !form.get('phone').errors.required">Введите корректный номер телефона</span>
+      <span *ngIf="form.get('phone').errors.required">Телефон не должен быть пустым</span>
+    </span>
+  </div>
+  <div class="input-field">
+    <input
+      formControlName="userSite"
+      id="brief-user-site"
+      type="text"
+      class="validate"
+    >
+    <label for="brief-user-site">Адрес вашего сайта</label>
+  </div>
+  <div class="input-field">
+    <textarea
+      formControlName="competitors"
+      id="brief-competitors"
+      class="materialize-textarea"
+    ></textarea>
+    <label for="brief-competitors">Основные конкуренты (адреса сайтов)</label>
+  </div>
+  <div class="input-field">
+    <input
+      formControlName="consumer"
+      id="brief-consumer"
+      type="text"
+      class="validate"
+    >
+    <label for="brief-consumer">Основной потребитель(пол, возраст, психотип и т.д.)</label>
+  </div>
+  <div class="input-field">
+    <textarea
+      formControlName="message"
+      id="message"
+      class="materialize-textarea"
+    ></textarea>
+    <label for="message">Коментарий</label>
+  </div>
+  <div class="center">
+    <button
+      type="submit"
+      class="waves-effect waves-light btn teal"
+      [disabled]="form.invalid || form.disabled"
+    >Отправить<i class="material-icons right">send</i></button>
+  </div>
+</form>

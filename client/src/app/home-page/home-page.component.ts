@@ -5,6 +5,7 @@ import {CategoriesService} from '../shared/services/categories.service';
 import {MaterialInstance, MaterialService} from '../shared/services/material.service';
 import {Subscription} from 'rxjs/internal/Subscription';
 import {Title} from '@angular/platform-browser';
+import {OwlCarousel} from 'ngx-owl-carousel';
 
 declare let $;
 
@@ -15,8 +16,12 @@ declare let $;
 })
 export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  @ViewChild('categoriesSlider') categoriesSlider: OwlCarousel;
   @ViewChild('adsCollapsible') adsCollapsibleRef: ElementRef;
   @ViewChild('info') infoRef: ElementRef;
+  @ViewChild('consultationForm') consultationFormRef: ElementRef;
+  @ViewChild('briefForm') briefFormRef: ElementRef;
+  @ViewChild('callbackForm') callbackFormRef: ElementRef;
   categories: Category[];
   fpAnchors = ['seo', 'site-dev', 'ads', 'smm'];
   categoriesSliderOptions = {
@@ -60,6 +65,8 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   };
   adsCollapsible: MaterialInstance;
+  briefForm: MaterialInstance;
+  callbackForm: MaterialInstance;
   info: MaterialInstance;
   obs$: Subscription;
 
@@ -83,12 +90,28 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.adsCollapsible = MaterialService.collapsibleInitialize(this.adsCollapsibleRef);
     this.adsCollapsible.open(0);
-    // this.info = MaterialService.tapTargetInitialize(this.infoRef);
+    this.briefForm = MaterialService.modalInitialize(this.briefFormRef, {
+      onOpenStart: () => {
+        this.fullpageService.setMouseWheelScrolling(false)
+      },
+      onCloseStart: () => {
+        this.fullpageService.setMouseWheelScrolling(true)
+      }
+    });
+    this.callbackForm = MaterialService.modalInitialize(this.callbackFormRef, {
+      onOpenStart: () => {
+        this.fullpageService.setMouseWheelScrolling(false)
+      },
+      onCloseStart: () => {
+        this.fullpageService.setMouseWheelScrolling(true)
+      }
+    });
   }
 
   ngOnDestroy() {
     this.adsCollapsible.destroy();
-    // this.info.destroy();
+    this.briefForm.destroy();
+    this.callbackForm.destroy();
     this.fullpageService.destroy('all');
 
     if(this.obs$) {
@@ -108,4 +131,19 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
     this.info.open();
   }
 
+  formToggle() {
+    $(this.consultationFormRef.nativeElement).toggleClass('active');
+  }
+
+  formClose() {
+    $(this.consultationFormRef.nativeElement).removeClass('active');
+  }
+
+  briefFormOpen() {
+    this.briefForm.open();
+  }
+
+  callbackFormOpen() {
+    this.callbackForm.open();
+  }
 }

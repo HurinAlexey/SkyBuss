@@ -28,6 +28,9 @@ import {MailService} from './shared/services/mail.service';
 import { FullpageNavComponent } from './home-page/fullpage-nav/fullpage-nav.component';
 import {OwlModule} from 'ngx-owl-carousel';
 import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
+import { ConsultationFormComponent } from './home-page/consultation-form/consultation-form.component';
+import { BriefFormComponent } from './home-page/brief-form/brief-form.component';
+import { CallbackFormComponent } from './home-page/callback-form/callback-form.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -48,7 +51,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PortfolioPageComponent,
     ContactsPageComponent,
     AboutPageComponent,
-    FullpageNavComponent
+    FullpageNavComponent,
+    ConsultationFormComponent,
+    BriefFormComponent,
+    CallbackFormComponent
   ],
   imports: [
     BrowserModule,
