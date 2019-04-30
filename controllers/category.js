@@ -25,6 +25,7 @@ module.exports.create = async (req, res) => {
     const category = new Category({
         name: req.body.name,
         imageSrc: req.file ? req.file.path : '',
+        description: req.body.description ? +req.body.description : '',
         cost: req.body.cost ? +req.body.cost : 0,
         devTime: req.body.devTime ? +req.body.devTime : 0
     });
@@ -52,6 +53,7 @@ module.exports.remove = async (req, res) => {
 module.exports.update = async (req, res) => {
     const updated = {
         name: req.body.name,
+        description: req.body.description,
         cost: +req.body.cost,
         devTime: +req.body.devTime
     };

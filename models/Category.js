@@ -10,6 +10,10 @@ const categorySchema = new Schema({
         type: String,
         default: ''
     },
+    description: {
+        type: String,
+        default: ''
+    },
     cost: {
         type: Number,
         default: 0

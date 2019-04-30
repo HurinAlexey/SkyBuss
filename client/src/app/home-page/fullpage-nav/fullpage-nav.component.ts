@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {MnFullpageService} from 'ngx-fullpage';
 
 declare let $;
@@ -8,7 +8,7 @@ declare let $;
   templateUrl: './fullpage-nav.component.html',
   styleUrls: ['./fullpage-nav.component.less']
 })
-export class FullpageNavComponent implements OnInit {
+export class FullpageNavComponent implements OnInit, AfterViewInit {
 
   @Input() fullpageService: MnFullpageService;
 
@@ -51,6 +51,41 @@ export class FullpageNavComponent implements OnInit {
       setTimeout(() => {
         this.fullpageService.moveTo(2);
       }, 1)
+    }
+  }
+
+  ngAfterViewInit() {
+    $('#slide-out .sub-menu a').click((e) => {
+      const hash = $(e.target).attr('fragment');
+
+      let currentSection: number = 0;
+
+      switch (hash) {
+        case 'site-dev':
+          currentSection = 2;
+          break;
+        case 'seo':
+          currentSection = 1;
+          break;
+        case 'ads':
+          currentSection = 3;
+          break;
+        case 'smm':
+          currentSection = 4;
+          break;
+        default:
+          currentSection = 2;
+          break;
+      }
+
+      this.changeSection(currentSection);
+    });
+
+    let switchSound: any = document.getElementById('switcher-sound');
+    if($(window).width() <= 992) {
+      switchSound.volume = 0.3;
+    } else {
+      switchSound.volume = 0.7;
     }
   }
 

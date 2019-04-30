@@ -4,6 +4,8 @@ import {Mail} from '../../shared/interfaces';
 import {MailService} from '../../shared/services/mail.service';
 import {MaterialService} from '../../shared/services/material.service';
 
+declare let gtag;
+
 @Component({
   selector: 'app-brief-form',
   templateUrl: './brief-form.component.html',
@@ -53,5 +55,12 @@ ${data.message}`
       MaterialService.toast(error.error.message);
       this.form.enable();
     })
+  }
+
+  onClick() {
+    gtag('event', 'click', {
+      'event_category': 'button',
+      'event_label': 'brifseo'
+    });
   }
 }

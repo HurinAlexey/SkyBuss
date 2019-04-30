@@ -22,6 +22,7 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('consultationForm') consultationFormRef: ElementRef;
   @ViewChild('briefForm') briefFormRef: ElementRef;
   @ViewChild('callbackForm') callbackFormRef: ElementRef;
+  @ViewChild('smmForm') smmFormRef: ElementRef;
   categories: Category[];
   fpAnchors = ['seo', 'site-dev', 'ads', 'smm'];
   categoriesSliderOptions = {
@@ -53,7 +54,7 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
       0: {
         margin: 10,
         nav: true,
-        loop: true,
+        loop: false,
         items: 1
       },
       769: {
@@ -67,6 +68,7 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
   adsCollapsible: MaterialInstance;
   briefForm: MaterialInstance;
   callbackForm: MaterialInstance;
+  smmForm: MaterialInstance;
   info: MaterialInstance;
   obs$: Subscription;
 
@@ -84,7 +86,7 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
       MaterialService.toast(error.message.message);
     });
 
-    this.title.setTitle('SkyBuss - Главная');
+    this.title.setTitle('SkyBuss WEB Studio - Создание сайтов Киев');
   }
 
   ngAfterViewInit() {
@@ -106,12 +108,27 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
         this.fullpageService.setMouseWheelScrolling(true)
       }
     });
+    this.smmForm = MaterialService.modalInitialize(this.smmFormRef, {
+      onOpenStart: () => {
+        this.fullpageService.setMouseWheelScrolling(false)
+      },
+      onCloseStart: () => {
+        this.fullpageService.setMouseWheelScrolling(true)
+      }
+    });
+
+    $(document.body).on("focus", "textarea, input", function() {
+      $(document.body).addClass("do-not-show-message");
+    }).on("blur", "textarea, input", function() {
+      $(document.body).removeClass("do-not-show-message");
+    });
   }
 
   ngOnDestroy() {
     this.adsCollapsible.destroy();
     this.briefForm.destroy();
     this.callbackForm.destroy();
+    this.smmForm.destroy();
     this.fullpageService.destroy('all');
 
     if(this.obs$) {
@@ -145,5 +162,9 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   callbackFormOpen() {
     this.callbackForm.open();
+  }
+
+  smmFormOpen() {
+    this.smmForm.open();
   }
 }

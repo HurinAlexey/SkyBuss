@@ -60,10 +60,22 @@ module.exports.remove = async (req, res) => {
 };
 
 module.exports.update = async (req, res) => {
+    const updated = {
+        name: req.body.name,
+        url: req.body.url,
+        description: req.body.description,
+        category: req.body.category,
+        date: req.body.date,
+    };
+
+    if(req.file) {
+        updated.imageSrc = req.file.path
+    }
+
     try {
         const project = await Project.findOneAndUpdate(
             {_id: req.params.id},
-            {$set: req.body},
+            {$set: updated},
             {new: true}
         );
         res.status(200).json(project);

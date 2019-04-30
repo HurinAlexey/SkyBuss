@@ -254,6 +254,19 @@ p {
             &::after {
               height: 0;
             }
+
+            > .btn {
+              padding: 0 16px;
+              border-radius: 2px;
+
+              .material-icons {
+                margin-right: 10px;
+              }
+
+              .btn-text {
+                width: 220px;
+              }
+            }
           }
 
           h3 {
@@ -272,8 +285,9 @@ p {
           > .btn {
             position: absolute;
             bottom: -25px;
+            max-width: 96%;
             height: 50px;
-            padding: 0 15px;
+            padding: 0 12px;
             background-color: rgba(21, 22, 58, .7);
             border-radius: 50%;
             z-index: 50;
@@ -289,19 +303,6 @@ p {
               white-space: nowrap;
               width: 0;
               transition: all .3s;
-            }
-
-            &:hover {
-              padding: 0 16px;
-              border-radius: 2px;
-
-              .material-icons {
-                margin-right: 10px;
-              }
-
-              .btn-text {
-                width: 220px;
-              }
             }
           }
 
@@ -339,10 +340,51 @@ p {
 
 
 /* Responsive */
-@media(max-width: 1024px) {
+@media(max-width: 1024px) and (orientation: landscape) {
   #fp-nav {
     display: block;
     width: 30px;
+  }
+
+  #seo-section {
+
+    #seo-slider {
+
+      .owl-item {
+
+        .item {
+
+          .content-item {
+
+            h3 {
+              font-size: 20px;
+            }
+
+            .item-text {
+              font-size: 12px;
+            }
+
+            > .btn {
+              white-space: nowrap;
+
+              .material-icons {
+                font-size: 1.5rem;
+              }
+
+              .btn-text {
+                max-width: calc(100% - 50px);
+                font-size: 11px;
+              }
+            }
+
+            &:hover > .btn {
+              padding: 0 10px;
+            }
+          }
+        }
+      }
+
+    }
   }
 }
 
@@ -381,6 +423,63 @@ p {
 
   #categories-slider .owl-item .item {
     max-width: calc(90% - 100px);
+  }
+}
+
+@media (max-width: 992px) and (orientation: portrait) {
+  #seo-section {
+
+    #seo-slider {
+
+      .owl-item {
+        height: calc(100vh - 315px);
+        padding: 5vh 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+  #seo-section {
+
+    #seo-slider {
+
+      .owl-item {
+        height: calc(100vh - 265px);
+      }
+    }
+  }
+
+  #categories-slider .owl-theme .owl-item {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 599px) and (orientation: portrait) {
+  #seo-section {
+
+    #seo-slider {
+
+      .owl-item {
+        height: calc(100vh - 230px);
+      }
+    }
+  }
+}
+
+@media(max-height: 650px) and (orientation: portrait) {
+  #fp-nav {
+    display: block;
+  }
+
+  #seo-section {
+
+    #seo-slider {
+
+      .owl-item {
+        height: calc(100vh - 100px);
+      }
+    }
   }
 }
 
@@ -425,43 +524,108 @@ p {
     height: 8px;
   }
 
-  #categories-slider .owl-nav {
+  #seo-section {
 
-    button {
-      width: 30px;
-      height: 30px;
-      line-height: 30px;
-      bottom: 0;
+    #seo-slider {
 
-      i {
-        font-size: 3rem;
+      .owl-item {
+
+        .item {
+
+          .content-item {
+
+            &:hover {
+              &::before,
+              &::after {
+                height: 50%;
+              }
+            }
+
+            img {
+              position: absolute;
+              z-index: -1;
+            }
+
+            h3 {
+              font-size: 20px;
+            }
+
+            .item-text {
+              font-size: 12px;
+            }
+
+            > .btn {
+              height: 40px;
+              bottom: -20px;
+              padding: 0 10px;
+              white-space: nowrap;
+
+              .material-icons {
+                font-size: 1.3rem;
+              }
+
+              .btn-text {
+                max-width: calc(100% - 50px);
+                font-size: 10px;
+              }
+            }
+          }
+        }
       }
 
-      &.owl-prev {
-        left: calc(50% - 40px);
-      }
-      &.owl-next {
-        right: calc(50% - 40px);
-      }
     }
   }
+
+  #categories-slider .owl-nav,
   #seo-slider .owl-nav {
 
     button {
-      width: 30px;
-      height: 30px;
-      line-height: 30px;
-      bottom: 20px;
-
-      i {
-        font-size: 3rem;
-      }
 
       &.owl-prev {
-        left: calc(50% - 40px);
+        left: 0;
       }
       &.owl-next {
-        right: calc(50% - 40px);
+        right: 0;
+      }
+    }
+  }
+
+
+  .modal .modal-content {
+    padding: 10px;
+
+    .input-field {
+      margin: .7rem 0;
+    }
+
+    input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default),
+    input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default),
+    input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default),
+    input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default),
+    input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+      height: 2rem;
+      font-size: 12px;
+    }
+    textarea.materialize-textarea {
+      height: 2rem!important;
+      min-height: 2rem;
+    }
+    input:not([type]).validate+label, input[type=text]:not(.browser-default).validate+label,
+    input[type=password]:not(.browser-default).validate+label, input[type=email]:not(.browser-default).validate+label,
+    input[type=url]:not(.browser-default).validate+label, input[type=time]:not(.browser-default).validate+label,
+    input[type=date]:not(.browser-default).validate+label, input[type=datetime]:not(.browser-default).validate+label,
+    input[type=datetime-local]:not(.browser-default).validate+label, input[type=tel]:not(.browser-default).validate+label,
+    input[type=number]:not(.browser-default).validate+label, input[type=search]:not(.browser-default).validate+label,
+    textarea.materialize-textarea.validate+label, .input-field>label {
+      font-size: 0.7rem;
+    }
+    .btn {
+      height: 24px;
+      line-height: 24px;
+      font-size: 12px;
+
+      .material-icons {
+        font-size: 12px;
       }
     }
   }
@@ -473,6 +637,7 @@ p {
     margin: auto;
 
     .content-item {
+      width: 100%;
       padding: 20px;
 
       h3 {

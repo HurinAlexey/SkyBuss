@@ -18,6 +18,9 @@
         <img src="{{category.imageSrc}}">
         <span class="card-title">{{category.name}}</span>
       </div>
+      <div class="card-content">
+        <p>{{category.description}}</p>
+      </div>
       <div class="card-action">
         <a
           [routerLink]="['/categories', category._id]"

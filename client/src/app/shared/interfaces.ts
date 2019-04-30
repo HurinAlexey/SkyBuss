@@ -7,6 +7,7 @@ export interface User {
 export interface Category {
   name: string,
   imageSrc?: string,
+  description: string,
   cost?: number,
   devTime?: number,
   _id?: string

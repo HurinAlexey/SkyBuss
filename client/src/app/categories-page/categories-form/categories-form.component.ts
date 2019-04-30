@@ -30,6 +30,7 @@ export class CategoriesFormComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       name: new FormControl(null, Validators.required),
+      description: new FormControl(null, Validators.required),
       cost: new FormControl(null),
       devTime: new FormControl(null)
     });
@@ -50,6 +51,7 @@ export class CategoriesFormComponent implements OnInit {
         this.category = category;
         this.form.patchValue({
           name: category.name,
+          description: category.description,
           cost: category.cost,
           devTime: category.devTime
         });
@@ -98,9 +100,9 @@ export class CategoriesFormComponent implements OnInit {
     this.form.disable();
 
     if(this.isNew) {
-      obs$ = this.categoriesService.create(this.form.value.name, this.image, this.form.value.cost, this.form.value.devTime)
+      obs$ = this.categoriesService.create(this.form.value.name, this.image,this.form.value.description, this.form.value.cost, this.form.value.devTime)
     } else  {
-      obs$ = this.categoriesService.update(this.category._id ,this.form.value.name, this.image, this.form.value.cost, this.form.value.devTime)
+      obs$ = this.categoriesService.update(this.category._id ,this.form.value.name, this.image, this.form.value.description, this.form.value.cost, this.form.value.devTime)
     }
 
     obs$.subscribe(category => {

@@ -31,8 +31,8 @@ export class ProjectsPageComponent implements OnInit, OnDestroy {
         this.projects$ = this.projectsService.getByCategoryId(params['id']);
       } else {
         this.projects$ = this.projectsService.fetch();
-        this.projects$.subscribe((projects) => {
-          console.log(projects)
+        this.projects$.subscribe(() => {
+          console.log('Loading success!')
         }, error => {
           console.log(error)
         });

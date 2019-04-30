@@ -4,6 +4,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MaterialService} from '../../shared/services/material.service';
 import {Mail} from '../../shared/interfaces';
 
+declare let gtag;
+
 @Component({
   selector: 'app-consultation-form',
   templateUrl: './consultation-form.component.html',
@@ -38,5 +40,12 @@ export class ConsultationFormComponent implements OnInit {
       MaterialService.toast(error.error.message);
       this.form.enable();
     })
+  }
+
+  onClick() {
+    gtag('event', 'click', {
+      'event_category': 'button',
+      'event_label': 'consult'
+    });
   }
 }
