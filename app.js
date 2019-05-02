@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(require('cors')());
 app.use(compression());
+//app.use(require('express-http-to-https').redirectToHTTPS());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/category', categoryRoutes);
